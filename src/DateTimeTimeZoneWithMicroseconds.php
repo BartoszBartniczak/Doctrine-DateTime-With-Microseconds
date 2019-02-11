@@ -61,7 +61,7 @@ class DateTimeTimeZoneWithMicroseconds extends Type
         }
 
         if ($value instanceof \DateTimeInterface) {
-            return $value->format($platform->getDateTimeFormatString());
+            return $value->format($this->format());
         }
 
         throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'DateTime']);
