@@ -71,6 +71,6 @@ class DateTimeTimeZoneWithMicroseconds extends Type
      * @return string
      */
     protected function format():string{
-        return 'd-m-Y H:i:s.U';
+        return 'd-m-Y H:i:s.u';
     }
 }
