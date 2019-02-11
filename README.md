@@ -24,6 +24,7 @@ In some systems this behavior is not expected. There are some situations where t
 - [ ] Unit tests
 - [ ] All DB tests 
 - [ ] null values
+- [ ] installation tutorial
 
 
 
