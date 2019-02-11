@@ -1,0 +1,28 @@
+{
+    "name": "bartoszbartniczak/doctrine-datetime-with-microseconds",
+    "description": "Doctine extension that adds microseconds to \\DateTime objects.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bartosz Bartniczak",
+            "email": "kontakt@bartoszbartniczak.pl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "doctrine/dbal": "^2.9"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "BartoszBartniczak\\Doctrine\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+
+        }
+    }
+}
