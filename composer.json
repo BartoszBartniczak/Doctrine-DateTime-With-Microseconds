@@ -2,7 +2,7 @@
     "name": "bartoszbartniczak/doctrine-datetime-with-microseconds",
     "description": "Doctine extension that adds microseconds to \\DateTime objects.",
     "type": "library",
-    "license": "Apache Licence 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Bartosz Bartniczak",
