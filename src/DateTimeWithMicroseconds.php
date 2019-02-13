@@ -71,6 +71,6 @@ class DateTimeWithMicroseconds extends Type
      * @return string
      */
     protected function format():string{
-        return 'd-m-Y H:i:s.u';
+        return 'Y-m-d H:i:s.u';
     }
 }
