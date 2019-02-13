@@ -11,9 +11,9 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 
-class DateTimeTimeZoneWithMicroseconds extends Type
+class DateTimeWithMicroseconds extends Type
 {
-    const DATETIMETZ_WITH_MICROSECONDS = 'datetimetz_microseconds';
+    const DATETIMETZ_WITH_MICROSECONDS = 'datetime_microseconds';
 
     /**
      * @param array $fieldDeclaration
@@ -71,6 +71,6 @@ class DateTimeTimeZoneWithMicroseconds extends Type
      * @return string
      */
     protected function format():string{
-        return 'd-m-Y H:i:s.uO';
+        return 'd-m-Y H:i:s.u';
     }
 }
