@@ -1,0 +1,20 @@
+version: "3"
+services:
+  php-7.2:
+    build: docker/php/php-7.2
+    volumes:
+    - ./:/app
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+
+  php-7.3:
+    build: docker/php/php-7.3
+    volumes:
+      - ./:/app
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+
+  php-7.4:
+    build: docker/php/php-7.4
+    volumes:
+      - ./:/app
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+

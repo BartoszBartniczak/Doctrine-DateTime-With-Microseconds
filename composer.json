@@ -11,10 +11,11 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": "^7.2",
         "doctrine/dbal": "^2.9"
     },
     "require-dev": {
-
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
@@ -23,7 +24,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-
+            "BartoszBartniczak\\Doctrine\\": "tests/unit-tests"
         }
     }
 }

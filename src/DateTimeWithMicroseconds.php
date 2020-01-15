@@ -13,7 +13,8 @@ use Doctrine\DBAL\Types\Type;
 
 class DateTimeWithMicroseconds extends Type
 {
-    const DATETIMETZ_WITH_MICROSECONDS = 'datetime_microseconds';
+    public const DATETIMETZ_WITH_MICROSECONDS = 'datetime_microseconds';
+    const DATE_FORMAT = 'Y-m-d H:i:s.u';
 
     /**
      * @param array $fieldDeclaration
@@ -45,7 +46,7 @@ class DateTimeWithMicroseconds extends Type
             return null;
         }
 
-        return \DateTime::createFromFormat($this->format(), $value);
+        return \DateTime::createFromFormat(self::DATE_FORMAT, $value);
     }
 
     /**
@@ -61,16 +62,10 @@ class DateTimeWithMicroseconds extends Type
         }
 
         if ($value instanceof \DateTimeInterface) {
-            return $value->format($this->format());
+            return $value->format(self::DATE_FORMAT);
         }
 
         throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'DateTime']);
     }
 
-    /**
-     * @return string
-     */
-    protected function format():string{
-        return 'Y-m-d H:i:s.u';
-    }
 }

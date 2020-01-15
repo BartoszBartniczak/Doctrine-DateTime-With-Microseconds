@@ -15,15 +15,18 @@ The Doctrine ORM saves the date, but without microseconds:
 
 In some systems this behavior is not expected. There are some situations where the microseconds are very important information, so they should be persisted.
 
-
-
 ***Caution: Not every Database system supports Timestamps with microseconds***
+
+## Requirements
+
+* PHP version 7.2+ (tested on 7.2, 7.3, 7.4)
 
 ## TODO
 
-- [ ] Unit tests
-- [ ] All DB tests 
-- [ ] null values
+- [ ] Code analysis
+- [ ] Integration with GitlabCI
+- [ ] Run matrix
+- [ ] Integration test All DB tests 
 - [ ] installation tutorial
 
 

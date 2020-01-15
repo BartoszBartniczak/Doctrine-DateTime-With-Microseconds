@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+COLOR_RED='\033[0;31m' #Red color
+COLOR_GREEN='\033[0;32m' #Red color
+COLOR_NO_COLOR='\033[0m' # No Color
+COLOR_YELLOW='\e[93m' #Light yellow color
+COLOR_BLUE='\e[34m' #Blue color
+
+FONT_BOLD=$(tput bold)
+FONT_NORMAL=$(tput sgr0)
+FONT_UNDERLINE='\e[4m'
+
+CHECKMARK="\xE2\x9C\x94"
+
+PHP_SERVICE=php-7.2
