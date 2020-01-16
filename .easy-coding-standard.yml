@@ -1,0 +1,6 @@
+parameters:
+  sets:
+    - 'clean-code'
+    - 'psr12'
+    - 'dead-code'
+    - 'common'

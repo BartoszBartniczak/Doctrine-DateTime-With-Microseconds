@@ -10,6 +10,22 @@ FONT_BOLD=$(tput bold)
 FONT_NORMAL=$(tput sgr0)
 FONT_UNDERLINE='\e[4m'
 
+ENVIRONMENT_DEV='DEV'
+ENVIRONMENT_PROD='PROD'
+ENVIRONMENT_TEST='TEST'
+
 CHECKMARK="\xE2\x9C\x94"
+
+spinner=('|' '/' '-' '\')
+
+function spin() {
+    while [ 1 ]; do
+        for i in "${spinner[@]}"
+        do
+          echo -ne "\r$i $1"
+          sleep 0.2
+        done
+    done
+}
 
 PHP_SERVICE=php-7.2

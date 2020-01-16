@@ -6,7 +6,6 @@
 
 namespace BartoszBartniczak\Doctrine;
 
-
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
@@ -14,7 +13,6 @@ use PHPUnit\Framework\TestCase;
 
 class DateTimeWithMicrosecondsTest extends TestCase
 {
-
     /**
      * @var DateTimeWithMicroseconds
      */
@@ -51,14 +49,14 @@ class DateTimeWithMicrosecondsTest extends TestCase
         $abstractPlatformMock = $this->getMockBuilder(AbstractPlatform::class)
             ->disableOriginalConstructor()
             ->onlyMethods([
-                'getDateTimeTzTypeDeclarationSQL'
+                'getDateTimeTzTypeDeclarationSQL',
             ])
             ->getMockForAbstractClass();
         $abstractPlatformMock->expects($this->once())
             ->method('getDateTimeTzTypeDeclarationSQL')
             ->with($fieldDeclaration)
             ->willReturn('returnedValue');
-        /* @var \Doctrine\DBAL\Platforms\AbstractPlatform $abstractPlatformMock */
+        /** @var \Doctrine\DBAL\Platforms\AbstractPlatform $abstractPlatformMock */
 
         $this->assertSame('returnedValue', $this->dateTimeWithMicroseconds->getSQLDeclaration($fieldDeclaration, $abstractPlatformMock));
     }
@@ -68,11 +66,9 @@ class DateTimeWithMicrosecondsTest extends TestCase
      */
     public function testConvertToPHPValue()
     {
-
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
 
-        $this->assertEquals(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
-
+        $this->assertSame(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
     }
 
     /**
@@ -80,7 +76,6 @@ class DateTimeWithMicrosecondsTest extends TestCase
      */
     public function testConvertToPHPValueReturnsNullIfValueIsNull()
     {
-
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
 
         $this->assertNull($this->dateTimeWithMicroseconds->convertToPHPValue(null, $platform));
@@ -117,5 +112,4 @@ class DateTimeWithMicrosecondsTest extends TestCase
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
         $this->dateTimeWithMicroseconds->convertToDatabaseValue('value', $platform);
     }
-
 }

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source bin/params
+
+docker-compose run --rm $PHP_SERVICE vendor/bin/ecs check  --config=.easy-coding-standard.yml --fix src tests

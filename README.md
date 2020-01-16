@@ -1,5 +1,7 @@
 Doctrine DateTime With Microseconds
 ====================================
+Doctrine plugin to save DateTime objects with microseconds in database.
+------------------------------------
 
 ### Standard Doctrine behavior
 
@@ -23,8 +25,7 @@ In some systems this behavior is not expected. There are some situations where t
 
 ## TODO
 
-- [ ] Code analysis
-- [ ] Integration with GitlabCI
+- [ ] Integration with TravisCI
 - [ ] Run matrix
 - [ ] Integration test All DB tests 
 - [ ] installation tutorial

@@ -4,25 +4,43 @@ source bin/params
 
 echo -e "-------------------------------------------------------------------------"
 echo -e "${FONT_BOLD}Changing file permissions ${FONT_NORMAL}"
-echo -e "\n"
 
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing file owner${COLOR_NO_COLOR}"
+spin "Changing file owner" &
+pid=$!
 docker-compose run --rm --user=root $PHP_SERVICE chown -R www-data:www-data *
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing file owner${COLOR_NO_COLOR}"
 
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing chmod for directories${COLOR_NO_COLOR}"
+spin "Changing chmod for directories" &
+pid=$!
 docker-compose run --rm --user=root $PHP_SERVICE find . -type d -exec chmod 775 {} \;
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing chmod for directories${COLOR_NO_COLOR}"
 
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing chmod for files${COLOR_NO_COLOR}"
+spin "Changing chmod for files" &
+pid=$!
 docker-compose run --rm --user=root $PHP_SERVICE find . -type f -name \*.* -exec chmod 664 {} \;
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing chmod for files${COLOR_NO_COLOR}"
 
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing chmod for bash scripts${COLOR_NO_COLOR}"
+spin "Changing chmod for bash scripts" &
+pid=$!
 docker-compose run --rm --user=root $PHP_SERVICE find . -type f -name \*.sh -exec chmod 775 {} \;
-
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing chmod for Dockerfiles${COLOR_NO_COLOR}"
-docker-compose run --rm --user=root $PHP_SERVICE find ./docker -type f -name \Dockerfile -exec chmod 664 {} \;
-
-echo -e "${COLOR_GREEN}${CHECKMARK} Changing chmod for executables${COLOR_NO_COLOR}"
 docker-compose run --rm --user=root $PHP_SERVICE find ./bin -type f -name \* -exec chmod 775 {} \;
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing chmod for bash scripts${COLOR_NO_COLOR}"
+
+spin "Changing chmod for Dockerfiles" &
+pid=$!
+docker-compose run --rm --user=root $PHP_SERVICE find ./docker -type f -name \Dockerfile -exec chmod 664 {} \;
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing chmod for Dockerfiles${COLOR_NO_COLOR}"
+
+spin "Changing chmod for crontabs" &
+pid=$!
+docker-compose run --rm --user=root $PHP_SERVICE find ./docker -type f -name \crontabs -exec chmod 664 {} \;
+kill $pid
+echo -e "\r${COLOR_GREEN}${CHECKMARK} Changing chmod for crontabs${COLOR_NO_COLOR}"
 
 echo -e "${COLOR_GREEN}${FONT_BOLD}${CHECKMARK} File permissions has been changed${FONT_NORMAL}${COLOR_NO_COLOR}"
 echo -e "-------------------------------------------------------------------------"

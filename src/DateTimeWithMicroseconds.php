@@ -6,7 +6,6 @@
 
 namespace BartoszBartniczak\Doctrine;
 
-
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
@@ -14,11 +13,10 @@ use Doctrine\DBAL\Types\Type;
 class DateTimeWithMicroseconds extends Type
 {
     public const DATETIMETZ_WITH_MICROSECONDS = 'datetime_microseconds';
-    const DATE_FORMAT = 'Y-m-d H:i:s.u';
+
+    public const DATE_FORMAT = 'Y-m-d H:i:s.u';
 
     /**
-     * @param array $fieldDeclaration
-     * @param AbstractPlatform $platform
      * @return string
      * @throws \Doctrine\DBAL\DBALException
      */
@@ -36,13 +34,11 @@ class DateTimeWithMicroseconds extends Type
     }
 
     /**
-     * @param mixed $value
-     * @param AbstractPlatform $platform
      * @return bool|\DateTime|mixed
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        if($value === null){
+        if ($value === null) {
             return null;
         }
 
@@ -50,9 +46,6 @@ class DateTimeWithMicroseconds extends Type
     }
 
     /**
-     * @param mixed $value
-     * @param AbstractPlatform $platform
-     * @return mixed
      * @throws ConversionException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -67,5 +60,4 @@ class DateTimeWithMicroseconds extends Type
 
         throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'DateTime']);
     }
-
 }
