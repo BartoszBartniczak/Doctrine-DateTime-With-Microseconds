@@ -2,6 +2,9 @@ Doctrine DateTime With Microseconds
 ====================================
 Doctrine plugin to save DateTime objects with microseconds in database.
 ------------------------------------
+[![Build Status](https://travis-ci.com/BartoszBartniczak/Doctrine-DateTime-With-Microseconds.svg?branch=master)](https://travis-ci.com/BartoszBartniczak/Doctrine-DateTime-With-Microseconds)
+[![Coverage Status](https://coveralls.io/repos/github/BartoszBartniczak/Doctrine-DateTime-With-Microseconds/badge.svg?branch=master)](https://coveralls.io/github/BartoszBartniczak/Doctrine-DateTime-With-Microseconds?branch=master)
+-----------
 
 ### Standard Doctrine behavior
 

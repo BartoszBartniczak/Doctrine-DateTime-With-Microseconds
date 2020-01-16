@@ -21,3 +21,7 @@ install:
 
 script:
   - bin/tests/unit-tests
+
+after_success:
+  - source bin/params
+  - travis_retry docker-compose exec -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" -e TRAVIS="$TRAVIS" $PHP_SERVICE vendor/bin/php-coveralls -v
