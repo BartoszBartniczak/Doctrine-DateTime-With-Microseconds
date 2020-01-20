@@ -4,8 +4,9 @@
  * User: bartosz
  */
 
-namespace BartoszBartniczak\Doctrine;
+namespace BartoszBartniczak\Doctrine\Tests;
 
+use BartoszBartniczak\Doctrine\DateTimeWithMicroseconds;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
@@ -37,7 +38,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
      */
     public function testGetName()
     {
-        $this->assertSame(DateTimeWithMicroseconds::DATETIMETZ_WITH_MICROSECONDS, $this->dateTimeWithMicroseconds->getName());
+        $this->assertSame(DateTimeWithMicroseconds::DATETIME_WITH_MICROSECONDS, $this->dateTimeWithMicroseconds->getName());
     }
 
     /**
@@ -68,7 +69,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
     {
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
 
-        $this->assertEquals(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
+        $this->assertSame(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
     }
 
     /**

@@ -12,7 +12,7 @@ use Doctrine\DBAL\Types\Type;
 
 class DateTimeWithMicroseconds extends Type
 {
-    public const DATETIMETZ_WITH_MICROSECONDS = 'datetime_microseconds';
+    public const DATETIME_WITH_MICROSECONDS = 'datetime_microseconds';
 
     public const DATE_FORMAT = 'Y-m-d H:i:s.u';
 
@@ -30,7 +30,7 @@ class DateTimeWithMicroseconds extends Type
      */
     public function getName()
     {
-        return self::DATETIMETZ_WITH_MICROSECONDS;
+        return self::DATETIME_WITH_MICROSECONDS;
     }
 
     /**

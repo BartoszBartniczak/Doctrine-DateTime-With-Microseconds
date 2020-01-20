@@ -2,6 +2,6 @@
 
 source bin/params
 
-docker-compose run --rm php-7.2 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text
-docker-compose run --rm php-7.3 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text
-docker-compose run --rm php-7.4 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text
+docker-compose run --rm php-7.2 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text --testsuite="Unit tests"
+docker-compose run --rm php-7.3 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text --testsuite="Unit tests"
+docker-compose run --rm php-7.4 vendor/bin/phpunit --configuration=.phpunit.xml --testdox --coverage-text --testsuite="Unit tests"

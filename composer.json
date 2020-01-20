@@ -19,7 +19,9 @@
         "symplify/easy-coding-standard": "^7.2",
         "phpstan/phpstan": "^0.12.5",
         "vimeo/psalm": "^3.8",
-        "php-coveralls/php-coveralls": "^2.2"
+        "php-coveralls/php-coveralls": "^2.2",
+        "doctrine/orm": "^2.7",
+        "symfony/var-dumper": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +30,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "BartoszBartniczak\\Doctrine\\": "tests/unit-tests"
+            "BartoszBartniczak\\Doctrine\\Tests\\": ["tests/unit-tests", "tests/functional-tests"],
+            "BartoszBartniczak\\Doctrine\\Tests\\Entity\\": "tests/Entity"
         }
     }
 }

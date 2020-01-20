@@ -5,16 +5,53 @@ services:
     volumes:
     - ./:/app
     - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - DATABASE_DRIVER=${DATABASE_DRIVER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+    links:
+      - postgres-9
 
   php-7.3:
     build: docker/php/php-7.3
     volumes:
       - ./:/app
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - DATABASE_DRIVER=${DATABASE_DRIVER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+    links:
+      - postgres-9
 
   php-7.4:
     build: docker/php/php-7.4
     volumes:
       - ./:/app
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - DATABASE_DRIVER=${DATABASE_DRIVER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+    links:
+      - postgres-9
 
+  postgres-9:
+    image: postgres:9
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_DB=${DATABASE_NAME}
+    volumes:
+    - ./docker/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
