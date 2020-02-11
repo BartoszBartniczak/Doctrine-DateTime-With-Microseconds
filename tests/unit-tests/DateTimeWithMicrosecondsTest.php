@@ -7,6 +7,7 @@
 namespace BartoszBartniczak\Doctrine\Tests;
 
 use BartoszBartniczak\Doctrine\DateTimeWithMicroseconds;
+use DateTime;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
@@ -57,7 +58,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
             ->method('getDateTimeTzTypeDeclarationSQL')
             ->with($fieldDeclaration)
             ->willReturn('returnedValue');
-        /** @var \Doctrine\DBAL\Platforms\AbstractPlatform $abstractPlatformMock */
+        /** @var AbstractPlatform $abstractPlatformMock */
 
         $this->assertSame('returnedValue', $this->dateTimeWithMicroseconds->getSQLDeclaration($fieldDeclaration, $abstractPlatformMock));
     }
@@ -69,7 +70,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
     {
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
 
-        $this->assertSame(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
+        $this->assertSame(DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
     }
 
     /**
@@ -87,7 +88,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
      */
     public function testConvertToDatabaseValue()
     {
-        $value = \DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299');
+        $value = DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299');
 
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
         $this->assertSame('2020-01-15 19:40:17.692299', $this->dateTimeWithMicroseconds->convertToDatabaseValue($value, $platform));

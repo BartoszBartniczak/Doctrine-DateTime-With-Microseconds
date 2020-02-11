@@ -13,7 +13,7 @@ class DateTimeWithMicrosecondsFunctionalTest extends FunctionalTest
     /**
      * @var int
      */
-    private $id;
+    private static $id;
 
     public function testWrite()
     {
@@ -22,9 +22,9 @@ class DateTimeWithMicrosecondsFunctionalTest extends FunctionalTest
         self::$entityManager->persist($object);
         self::$entityManager->flush();
 
-        $this->id = $object->getId();
+        self::$id = $object->getId();
 
-        $values = self::$entityManager->getConnection()->query('SELECT id, row_date FROM test_datetime WHERE id = ' . $this->id)->fetchAll();
+        $values = self::$entityManager->getConnection()->query('SELECT id, row_date FROM test_datetime WHERE id = ' . self::$id)->fetchAll();
         $row = $values[0];
 
         $this->assertSame('2020-01-20 20:33:46.123789', $row['row_date']);
@@ -32,7 +32,7 @@ class DateTimeWithMicrosecondsFunctionalTest extends FunctionalTest
 
     public function testRead()
     {
-        $testDateTime = self::$entityManager->getRepository(TestDatetime::class)->find(1);
+        $testDateTime = self::$entityManager->getRepository(TestDatetime::class)->find(self::$id);
         /** @var TestDatetime $testDateTime */
         $this->assertInstanceOf(\DateTime::class, $testDateTime->getRowDate());
         $this->assertSame('2020-01-20 20:33:46.123789', $testDateTime->getRowDate()->format('Y-m-d H:i:s.u'));

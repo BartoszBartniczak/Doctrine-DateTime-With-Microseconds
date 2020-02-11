@@ -18,7 +18,8 @@ class TestDatetime
      * @var int
      *
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="test_datetime_id_seq", initialValue=2)
      * @ORM\Column(name="id", type="integer", nullable=false)
      */
     private $id;
@@ -38,12 +39,10 @@ class TestDatetime
         $this->rowDate = $rowDate;
     }
 
-
     public function getId(): int
     {
         return $this->id;
     }
-
 
     public function getRowDate(): \DateTime
     {
