@@ -28,7 +28,7 @@ In some systems this behavior is not expected. There are some situations where t
 
 ## TODO
 
-- [ ] Integration with TravisCI
+- [ ] Test with timestamp and timestampz
 - [ ] Run matrix
 - [ ] Integration test All DB tests 
 - [ ] installation tutorial
