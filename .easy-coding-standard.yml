@@ -4,3 +4,5 @@ parameters:
     - 'psr12'
     - 'dead-code'
     - 'common'
+  skip:
+    PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer: ~
