@@ -2,6 +2,15 @@
 
 source bin/params
 
-docker-compose run --rm php-7.2 vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
-docker-compose run --rm php-7.3 vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
-docker-compose run --rm php-7.4 vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
+phpVersionContainers=( php-7.2 php-7.3 php-7.4 )
+
+databasesContainers=( postgres-9 postgres-10 postgres-11 postgres-12 )
+
+for databaseVersion in "${databasesContainers[@]}"
+do
+    for phpVersion in "${phpVersionContainers[@]}"
+    do
+        echo -e "Starting functional tests. PHP version: ${FONT_BOLD}${phpVersion}${FONT_NORMAL}. Database: ${FONT_BOLD}${databaseVersion}${FONT_NORMAL}"
+        docker-compose run --rm -e DATABASE_HOST=${databaseVersion} ${phpVersion} vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
+    done
+done

@@ -10,28 +10,32 @@ Doctrine plugin to save DateTime objects with microseconds in database.
 
 Doctrine saves `\DateTime` to the database correctly, but omits the microseconds, which are part of the `\DateTime` object. 
 
-### Example mapping:
+### Standard doctrine mapping:
 
 ![1549735833745](docs/example-mapping.png)
 
 The Doctrine ORM saves the date, but without microseconds:
 
-![1549735952539](docs/doctrine-result.png)
+![1549735952539](docs/doctrine-standard-result.png)
 
 In some systems this behavior is not expected. There are some situations where the microseconds are very important information, so they should be persisted.
 
 ***Caution: Not every Database system supports Timestamps with microseconds***
 
-## Requirements
+### Usage
 
-* PHP version 7.2+ (tested on 7.2, 7.3, 7.4)
+## Table of compatibility
+
+|             | PHP 7.2 | PHP 7.3 |  PHP 7.4 |
+|-------------|------------------|------------------|------------------|
+| Postgres 9  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Postgres 10 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Postgres 11 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Postgres 12 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+
 
 ## TODO
 
-- [ ] Test with timestamp and timestampz
 - [ ] Run matrix
 - [ ] Integration test All DB tests 
 - [ ] installation tutorial
-
-
-
