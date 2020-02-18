@@ -70,7 +70,7 @@ class DateTimeWithMicrosecondsTest extends TestCase
     {
         $platform = $this->getMockForAbstractClass(AbstractPlatform::class);
 
-        $this->assertEquals(DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
+        $this->assertSame(DateTime::createFromFormat('Y-m-d H:i:s.u', '2020-01-15 19:40:17.692299'), $this->dateTimeWithMicroseconds->convertToPHPValue('2020-01-15 19:40:17.692299', $platform));
     }
 
     /**

@@ -29,9 +29,9 @@ In some systems this behavior is not expected. There are some situations where t
 |             | PHP 7.2 | PHP 7.3 |  PHP 7.4 |
 |-------------|------------------|------------------|------------------|
 | Postgres 9  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| Postgres 10 |         |         |          |
-| Postgres 11 |         |         |          |
-| Postgres 12 |         |         |          |
+| Postgres 10 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Postgres 11 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Postgres 12 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 
 ## TODO
