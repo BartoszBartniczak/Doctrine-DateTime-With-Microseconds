@@ -55,3 +55,14 @@ services:
       - POSTGRES_DB=${DATABASE_NAME}
     volumes:
     - ./docker/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  postgres-10:
+    image: postgres:10
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_DB=${DATABASE_NAME}
+    volumes:
+      - ./docker/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
