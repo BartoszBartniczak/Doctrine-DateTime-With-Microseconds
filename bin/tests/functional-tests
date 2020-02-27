@@ -18,10 +18,17 @@ done
 ### Postgres END
 
 ### MySQL
-for phpVersion in "${phpVersionContainers[@]}"
+phpVersionContainers=( php-7.2 php-7.3 php-7.4 )
+
+databasesContainers=( mysql-5 mysql-8 )
+
+for databaseVersion in "${databasesContainers[@]}"
+do
+    for phpVersion in "${phpVersionContainers[@]}"
     do
-        echo -e "Starting functional tests. PHP version: ${FONT_BOLD}${phpVersion}${FONT_NORMAL}. Database: ${FONT_BOLD}mysql-8${FONT_NORMAL}"
-        docker-compose run --rm -e DATABASE_DRIVER=pdo_mysql -e DATABASE_HOST=mysql-8 -e DATABASE_PORT=3306 ${phpVersion} vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
+        echo -e "Starting functional tests. PHP version: ${FONT_BOLD}${phpVersion}${FONT_NORMAL}. Database: ${FONT_BOLD}${databaseVersion}${FONT_NORMAL}"
+        docker-compose run --rm  -e DATABASE_DRIVER=pdo_mysql -e DATABASE_PORT=3306 -e DATABASE_HOST=${databaseVersion} ${phpVersion} vendor/bin/phpunit --configuration=.phpunit.xml --no-coverage --testsuite="Functional tests"
     done
+done
 ### MySQL END
 

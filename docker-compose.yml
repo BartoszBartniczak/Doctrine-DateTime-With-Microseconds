@@ -17,6 +17,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-5
       - mysql-8
 
   php-7.3:
@@ -36,6 +37,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-5
       - mysql-8
 
   php-7.4:
@@ -55,6 +57,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-5
       - mysql-8
 
   postgres-9:
@@ -100,12 +103,24 @@ services:
       - POSTGRES_DB=${DATABASE_NAME}
     volumes:
       - ./docker/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
-  
+
+  mysql-5:
+    image: mysql:5
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    volumes:
+      - ./docker/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
   mysql-8:
     image: mysql:8
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_USER=${DATABASE_USER}

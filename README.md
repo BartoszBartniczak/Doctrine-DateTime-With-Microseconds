@@ -54,9 +54,10 @@ After persisting object, you should have seen datetime value with microseconds s
 | Postgres 10 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 11 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 12 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| MySQL 5 **(Does not support microsecods in time values**) | :x: | :x: | :x: |
+| MySQL 5\* | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | MySQL 8 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
+_\*Microseconds are supported since version 5.6_
 
 ## Other Relational Database Management Systems
 
