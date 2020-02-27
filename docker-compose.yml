@@ -17,6 +17,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-8
 
   php-7.3:
     build: docker/php/php-7.3
@@ -35,6 +36,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-8
 
   php-7.4:
     build: docker/php/php-7.4
@@ -53,6 +55,7 @@ services:
       - postgres-10
       - postgres-11
       - postgres-12
+      - mysql-8
 
   postgres-9:
     image: postgres:9
