@@ -54,12 +54,14 @@ After persisting object, you should have seen datetime value with microseconds s
 | Postgres 10 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 11 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 12 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| MySQL 5 **(Does not support microsecods in time values**) | :x: | :x: | :x: |
+| MySQL 8 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## Other Relational Database Management Systems
 
 If your RDBMS is not pointed on the list above, it does not mean that it will not work. It means that this library was not tested yet with that databse system. You can try and test it yourself, or even try contribute to this project.
 
-* **MySQL** - Not tested yet
 * **MariaDB** - Not tested yet
 * **Microsoft SQL Server** - Not tested yet
 * **Oracle database** - Not tested yet

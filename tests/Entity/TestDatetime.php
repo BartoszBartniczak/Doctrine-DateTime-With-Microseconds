@@ -18,8 +18,7 @@ class TestDatetime
      * @var int
      *
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="test_datetime_id_seq", initialValue=2)
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(name="id", type="integer", nullable=false)
      */
     private $id;
