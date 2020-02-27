@@ -19,6 +19,8 @@ services:
       - postgres-12
       - mysql-5
       - mysql-8
+      - mariadb-5
+      - mariadb-10
 
   php-7.3:
     build: docker/php/php-7.3
@@ -39,6 +41,8 @@ services:
       - postgres-12
       - mysql-5
       - mysql-8
+      - mariadb-5
+      - mariadb-10
 
   php-7.4:
     build: docker/php/php-7.4
@@ -59,6 +63,8 @@ services:
       - postgres-12
       - mysql-5
       - mysql-8
+      - mariadb-5
+      - mariadb-10
 
   postgres-9:
     image: postgres:9
@@ -129,3 +135,26 @@ services:
     volumes:
       - ./docker/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
+  mariadb-5:
+    image: mariadb:5
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  mariadb-10:
+    image: mariadb:10
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql

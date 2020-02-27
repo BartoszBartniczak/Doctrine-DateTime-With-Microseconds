@@ -20,7 +20,7 @@ done
 ### MySQL
 phpVersionContainers=( php-7.2 php-7.3 php-7.4 )
 
-databasesContainers=( mysql-5 mysql-8 )
+databasesContainers=( mysql-5 mysql-8 mariadb-5 mariadb-10)
 
 for databaseVersion in "${databasesContainers[@]}"
 do
