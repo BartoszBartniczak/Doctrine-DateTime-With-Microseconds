@@ -54,15 +54,19 @@ After persisting object, you should have seen datetime value with microseconds s
 | Postgres 10 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 11 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Postgres 12 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| MySQL 5 **(Does not support microsecods in time values**) | :x: | :x: | :x: |
+| MySQL 5.6.4+\* | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | MySQL 8 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| MariaDB 5.3+ \*\* | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| MariaDB 10 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
+_\*Microseconds are supported since version 5.6.4 [[source1]](https://dev.mysql.com/doc/refman/5.6/en/fractional-seconds.html) [[source2]](https://stackoverflow.com/a/8790196)_
+
+_\*\* Microseconds are supported since version 5.3 [[source]](https://mariadb.com/kb/en/microseconds-in-mariadb/#mysql-56-microseconds)_
 
 ## Other Relational Database Management Systems
 
 If your RDBMS is not pointed on the list above, it does not mean that it will not work. It means that this library was not tested yet with that databse system. You can try and test it yourself, or even try contribute to this project.
 
-* **MariaDB** - Not tested yet
 * **Microsoft SQL Server** - Not tested yet
 * **Oracle database** - Not tested yet
 * **SQLite** - Not tested yet
