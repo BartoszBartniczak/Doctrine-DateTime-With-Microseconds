@@ -34,6 +34,6 @@ jobs:
 
       - name: Send code coverage report
         run: |
-          bin/parameters
+          bin/params
           docker-compose run --rm $PHP_SERVICE vendor/bin/php-coveralls -v
 
