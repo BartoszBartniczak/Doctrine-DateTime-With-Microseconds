@@ -33,8 +33,5 @@ jobs:
         run: bin/tests/functional-tests
 
       - name: Send code coverage report
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: |
-          docker-compose run -T --rm -e COVERALLS_REPO_TOKEN=${{ secrets.COVERALLS_REPO_TOKEN }} $PHP_SERVICE "composer global require php-coveralls/php-coveralls && vendor/bin/php-coveralls --coverage_clover=build/logs/clover.xml -v"
+        run: bash <(curl -s https://codecov.io/bash)
 
